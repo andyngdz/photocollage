@@ -1,7 +1,5 @@
+import { Editor } from "@/components/editor/presentations/Editor";
 
 export default function Home() {
-  return (
-    <div>
-    </div>
-  );
+  return <Editor />;
 }
