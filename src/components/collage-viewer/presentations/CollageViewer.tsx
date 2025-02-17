@@ -1,26 +1,15 @@
-import {
-  onSwapItem,
-  useFiles,
-} from "@/components/collage-viewer/states/useFiles";
+import { useCollageViewer } from "@/components/collage-viewer/hooks/useCollageViewer";
 import { DraggableImage } from "@/components/draggable-image/presentations/DraggableImage";
-import { DndContext, DragEndEvent } from "@dnd-kit/core";
+import { DndContext } from "@dnd-kit/core";
 import clsx from "clsx";
 import { useMemo } from "react";
 
 export const CollageViewer = () => {
-  const { items } = useFiles();
+  const { items, onDragEnd } = useCollageViewer();
 
   const children = useMemo(() => {
     return items.map((item) => <DraggableImage key={item.id} item={item} />);
   }, [items]);
-
-  const onDragEnd = (event: DragEndEvent) => {
-    const { over, active } = event;
-
-    if (over) {
-      onSwapItem(active.id, over.id);
-    }
-  };
 
   return (
     <div
