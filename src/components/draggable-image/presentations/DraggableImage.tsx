@@ -6,6 +6,7 @@ import { FC } from "react";
 import SimpleBarReact from "simplebar-react";
 import "simplebar-react/dist/simplebar.min.css";
 
+import { DroppableArea } from "@/components/droppable-area/presentations/DroppableArea";
 import { useDraggable } from "@dnd-kit/core";
 import { CSS } from "@dnd-kit/utilities";
 
@@ -34,9 +35,11 @@ export const DraggableImage: FC<IDraggableImageProps> = ({ item }) => {
       {...listeners}
       {...attributes}
     >
-      <SimpleBarReact className="h-[inherit]">
-        <Image radius="none" src={src} removeWrapper />
-      </SimpleBarReact>
+      <DroppableArea item={item}>
+        <SimpleBarReact className="h-[inherit]">
+          <Image radius="none" src={src} removeWrapper />
+        </SimpleBarReact>
+      </DroppableArea>
     </div>
   );
 };
