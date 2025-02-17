@@ -1,5 +1,6 @@
 import { useFiles } from "@/components/collage-viewer/states/useFiles";
 import { DraggableImage } from "@/components/draggable-image/presentations/DraggableImage";
+import { DndContext } from "@dnd-kit/core";
 import clsx from "clsx";
 import { useMemo } from "react";
 
@@ -29,7 +30,7 @@ export const CollageViewer = () => {
           "h-[inherit]"
         )}
       >
-        {children}
+        <DndContext>{children}</DndContext>
       </div>
     </div>
   );
