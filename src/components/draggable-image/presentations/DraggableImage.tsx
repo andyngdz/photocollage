@@ -4,7 +4,6 @@ import { IItemProps } from "@/components/collage-viewer/states/useFiles";
 import { Image } from "@heroui/react";
 import { FC } from "react";
 import SimpleBarReact from "simplebar-react";
-import "simplebar-react/dist/simplebar.min.css";
 
 import { useDraggableImage } from "@/components/draggable-image/hooks/useDraggableImage";
 import { DroppableArea } from "@/components/droppable-area/presentations/DroppableArea";

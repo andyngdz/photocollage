@@ -14,17 +14,5 @@ export const BaseLayout = <T,>({
 }: IBaseLayoutProps<T>) => {
   const children = useMemo(() => items.map(onRender), [items]);
 
-  return (
-    <div
-      className={clsx(
-        "overflow-hidden",
-        "gap-1",
-        "w-[inherit]",
-        "h-[inherit]",
-        className
-      )}
-    >
-      {children}
-    </div>
-  );
+  return <div className={clsx("overflow-hidden", className)}>{children}</div>;
 };

@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 import "@/app/globals.css";
+import "allotment/dist/style.css";
+import "simplebar-react/dist/simplebar.min.css";
 
 const fontMain = Inter({
   variable: "--font-sans",
