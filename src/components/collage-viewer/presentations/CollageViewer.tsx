@@ -12,12 +12,12 @@ export const CollageViewer = () => {
 
   return (
     <div
-      className={clsx("p-2", "bg-default-50", {
+      className={clsx("p-2", "bg-white", {
         hidden: files.length === 0,
       })}
       style={{
-        maxWidth: 800,
-        maxHeight: 600,
+        width: 800,
+        height: 600,
       }}
     >
       <div
