@@ -1,7 +1,12 @@
+import { ValueChanged } from "@/types";
 import { Button } from "@heroui/react";
-import { ChangeEventHandler, useRef } from "react";
+import { ChangeEventHandler, FC, useRef } from "react";
 
-export const FileSelector = () => {
+export interface IFileSelectorProps {
+  onFileChange: ValueChanged<FileList>;
+}
+
+export const FileSelector: FC<IFileSelectorProps> = ({ onFileChange }) => {
   const selectorRef = useRef<HTMLInputElement>(null);
 
   const onPickImages = () => {
@@ -13,7 +18,9 @@ export const FileSelector = () => {
   };
 
   const onChange: ChangeEventHandler<HTMLInputElement> = (event) => {
-    console.info(event.target.files);
+    if (event.target.files) {
+      onFileChange(event.target.files);
+    }
   };
 
   return (
@@ -22,7 +29,7 @@ export const FileSelector = () => {
       <input
         ref={selectorRef}
         type="file"
-        onChange={onChange}
+        onChange={(event) => onChange(event)}
         hidden
         multiple
       />

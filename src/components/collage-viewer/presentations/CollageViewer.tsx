@@ -3,7 +3,7 @@ import { FileSelector } from "@/components/file-selector/presentations/FileSelec
 export const CollageViewer = () => {
   return (
     <div className="h-full w-full flex items-center justify-center">
-      <FileSelector />
+      <FileSelector onFileChange={(files) => {}} />
     </div>
   );
 };
