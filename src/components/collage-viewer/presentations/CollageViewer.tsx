@@ -1,5 +1,5 @@
 import { useFiles } from "@/components/collage-viewer/states/useFiles";
-import { Image } from "@heroui/react";
+import { DraggableImage } from "@/components/draggable-image/presentations/DraggableImage";
 import clsx from "clsx";
 import { useMemo } from "react";
 
@@ -7,24 +7,14 @@ export const CollageViewer = () => {
   const { files } = useFiles();
 
   const children = useMemo(() => {
-    return files.map((file) => {
-      const src = URL.createObjectURL(file);
-      return (
-        <div key={file.name} className="h-full w-full overflow-scroll">
-          <Image
-            className="object-cover"
-            radius="none"
-            src={src}
-            removeWrapper
-          />
-        </div>
-      );
-    });
+    return files.map((file) => <DraggableImage key={file.name} file={file} />);
   }, [files]);
 
   return (
     <div
-      className={clsx("p-2", "bg-default-50", "rounded-lg", "overflow-hidden")}
+      className={clsx("p-2", "bg-default-50", {
+        hidden: files.length === 0,
+      })}
       style={{
         maxWidth: 800,
         maxHeight: 600,
