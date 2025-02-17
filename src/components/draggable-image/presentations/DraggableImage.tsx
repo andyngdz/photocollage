@@ -6,25 +6,16 @@ import { FC } from "react";
 import SimpleBarReact from "simplebar-react";
 import "simplebar-react/dist/simplebar.min.css";
 
-import { useDraggable } from "@dnd-kit/core";
-import { CSS } from "@dnd-kit/utilities";
+import { useDraggableImage } from "@/components/draggable-image/hooks/useDraggableImage";
+import { DroppableArea } from "@/components/droppable-area/presentations/DroppableArea";
 
 export interface IDraggableImageProps {
   item: IItemProps;
 }
 
 export const DraggableImage: FC<IDraggableImageProps> = ({ item }) => {
-  const { id, file } = item;
-
-  const src = URL.createObjectURL(file);
-  const { attributes, listeners, setNodeRef, transform, isDragging } =
-    useDraggable({
-      id,
-    });
-  const style = {
-    transform: CSS.Translate.toString(transform),
-    zIndex: isDragging ? 2 : 1,
-  };
+  const { src, setNodeRef, style, listeners, attributes } =
+    useDraggableImage(item);
 
   return (
     <div
@@ -34,9 +25,11 @@ export const DraggableImage: FC<IDraggableImageProps> = ({ item }) => {
       {...listeners}
       {...attributes}
     >
-      <SimpleBarReact className="h-[inherit]">
-        <Image radius="none" src={src} removeWrapper />
-      </SimpleBarReact>
+      <DroppableArea item={item}>
+        <SimpleBarReact className="h-[inherit]">
+          <Image radius="none" src={src} removeWrapper />
+        </SimpleBarReact>
+      </DroppableArea>
     </div>
   );
 };

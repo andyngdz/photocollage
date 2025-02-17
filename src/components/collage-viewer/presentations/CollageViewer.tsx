@@ -1,11 +1,11 @@
-import { useFiles } from "@/components/collage-viewer/states/useFiles";
+import { useCollageViewer } from "@/components/collage-viewer/hooks/useCollageViewer";
 import { DraggableImage } from "@/components/draggable-image/presentations/DraggableImage";
 import { DndContext } from "@dnd-kit/core";
 import clsx from "clsx";
 import { useMemo } from "react";
 
 export const CollageViewer = () => {
-  const { items } = useFiles();
+  const { items, onDragEnd } = useCollageViewer();
 
   const children = useMemo(() => {
     return items.map((item) => <DraggableImage key={item.id} item={item} />);
@@ -30,7 +30,7 @@ export const CollageViewer = () => {
           "h-[inherit]"
         )}
       >
-        <DndContext>{children}</DndContext>
+        <DndContext onDragEnd={onDragEnd}>{children}</DndContext>
       </div>
     </div>
   );
