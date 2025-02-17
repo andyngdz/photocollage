@@ -17,7 +17,7 @@ export const BaseLayout = <T,>({
   return (
     <div
       className={clsx(
-        "grid overflow-hidden",
+        "overflow-hidden",
         "gap-1",
         "w-[inherit]",
         "h-[inherit]",

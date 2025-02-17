@@ -4,5 +4,5 @@ import {
 } from "@/components/collage-layouts/presentations/BaseLayout";
 
 export const TwoImages = <T,>(props: IBaseLayoutProps<T>) => {
-  return <BaseLayout className="grid-cols-2" {...props} />;
+  return <BaseLayout className="grid grid-cols-2" {...props} />;
 };
