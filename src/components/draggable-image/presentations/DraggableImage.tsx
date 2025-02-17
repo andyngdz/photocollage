@@ -14,7 +14,7 @@ export const DraggableImage: FC<IDraggableImageProps> = ({ file }) => {
 
   return (
     <SimpleBarReact key={file.name} className="relative h-[inherit]">
-      <Image className="object-cover" radius="none" src={src} removeWrapper />
+      <Image radius="none" src={src} removeWrapper />
     </SimpleBarReact>
   );
 };

@@ -16,8 +16,8 @@ export const CollageViewer = () => {
         hidden: files.length === 0,
       })}
       style={{
-        width: 400,
-        height: 300,
+        width: 600,
+        height: 400,
       }}
     >
       <div
