@@ -15,17 +15,20 @@ export interface IDraggableImageProps {
 
 export const DraggableImage: FC<IDraggableImageProps> = ({ item }) => {
   const src = URL.createObjectURL(item.file);
-  const { attributes, listeners, setNodeRef, transform } = useDraggable({
-    id: item.id,
-  });
+  const { attributes, listeners, setNodeRef, transform, isDragging } =
+    useDraggable({
+      id: item.id,
+    });
+  const style = {
+    transform: CSS.Translate.toString(transform),
+    zIndex: isDragging ? 2 : 1,
+  };
 
   return (
     <div
       ref={setNodeRef}
       className="h-[inherit]"
-      style={{
-        transform: CSS.Translate.toString(transform),
-      }}
+      style={style}
       {...listeners}
       {...attributes}
     >
