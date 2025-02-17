@@ -1,15 +1,28 @@
+import { v4 as uuidv4 } from "uuid";
 import { create } from "zustand";
 
+export interface IItemProps {
+  id: string;
+  file: File;
+}
+
 export interface IUseFilesProps {
-  files: File[];
+  items: IItemProps[];
 }
 
 const useFiles = create<IUseFilesProps>(() => ({
-  files: [],
+  items: [],
 }));
 
 const onAddFiles = (files: File[]) => {
-  useFiles.setState({ files });
+  const items = files.map((file) => {
+    return {
+      id: uuidv4(),
+      file,
+    };
+  });
+
+  useFiles.setState({ items });
 };
 
 export { onAddFiles, useFiles };
