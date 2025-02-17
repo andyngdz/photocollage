@@ -18,7 +18,7 @@ export const CollageLayouts = () => {
   });
 
   return (
-    <div className="h-full w-[300px]">
+    <div className="h-full w-[300px] p-4">
       <label className="prose-lg">Layouts</label>
       <SimpleBarReact>{layout2Children}</SimpleBarReact>
     </div>
