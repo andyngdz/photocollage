@@ -14,10 +14,12 @@ export interface IDraggableImageProps {
 }
 
 export const DraggableImage: FC<IDraggableImageProps> = ({ item }) => {
-  const src = URL.createObjectURL(item.file);
+  const { id, file } = item;
+
+  const src = URL.createObjectURL(file);
   const { attributes, listeners, setNodeRef, transform, isDragging } =
     useDraggable({
-      id: item.id,
+      id,
     });
   const style = {
     transform: CSS.Translate.toString(transform),
