@@ -1,19 +1,20 @@
 "use client";
 
+import { IItemProps } from "@/components/collage-viewer/states/useFiles";
 import { Image } from "@heroui/react";
 import { FC } from "react";
 import SimpleBarReact from "simplebar-react";
 import "simplebar-react/dist/simplebar.min.css";
 
 export interface IDraggableImageProps {
-  file: File;
+  item: IItemProps;
 }
 
-export const DraggableImage: FC<IDraggableImageProps> = ({ file }) => {
-  const src = URL.createObjectURL(file);
+export const DraggableImage: FC<IDraggableImageProps> = ({ item }) => {
+  const src = URL.createObjectURL(item.file);
 
   return (
-    <SimpleBarReact key={file.name} className="relative h-[inherit]">
+    <SimpleBarReact className="relative h-[inherit]">
       <Image radius="none" src={src} removeWrapper />
     </SimpleBarReact>
   );

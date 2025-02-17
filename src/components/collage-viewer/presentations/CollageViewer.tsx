@@ -4,16 +4,16 @@ import clsx from "clsx";
 import { useMemo } from "react";
 
 export const CollageViewer = () => {
-  const { files } = useFiles();
+  const { items } = useFiles();
 
   const children = useMemo(() => {
-    return files.map((file) => <DraggableImage key={file.name} file={file} />);
-  }, [files]);
+    return items.map((item) => <DraggableImage key={item.id} item={item} />);
+  }, [items]);
 
   return (
     <div
       className={clsx("bg-white", {
-        hidden: files.length === 0,
+        hidden: items.length === 0,
       })}
       style={{
         width: 600,
