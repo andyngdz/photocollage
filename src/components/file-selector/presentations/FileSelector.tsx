@@ -3,7 +3,7 @@ import { Button } from "@heroui/react";
 import { ChangeEventHandler, FC, useRef } from "react";
 
 export interface IFileSelectorProps {
-  onFileChange: ValueChanged<FileList>;
+  onFileChange: ValueChanged<File[]>;
 }
 
 export const FileSelector: FC<IFileSelectorProps> = ({ onFileChange }) => {
@@ -19,7 +19,7 @@ export const FileSelector: FC<IFileSelectorProps> = ({ onFileChange }) => {
 
   const onChange: ChangeEventHandler<HTMLInputElement> = (event) => {
     if (event.target.files) {
-      onFileChange(event.target.files);
+      onFileChange(Array.from(event.target.files));
     }
   };
 
