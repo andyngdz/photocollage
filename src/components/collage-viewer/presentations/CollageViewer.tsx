@@ -12,12 +12,12 @@ export const CollageViewer = () => {
 
   return (
     <div
-      className={clsx("p-2", "bg-white", {
+      className={clsx("bg-white", {
         hidden: files.length === 0,
       })}
       style={{
-        width: 800,
-        height: 600,
+        width: 400,
+        height: 300,
       }}
     >
       <div
@@ -25,8 +25,8 @@ export const CollageViewer = () => {
           "grid overflow-hidden",
           "grid-cols-2",
           "gap-1",
-          "w-full",
-          "h-full"
+          "w-[inherit]",
+          "h-[inherit]"
         )}
       >
         {children}

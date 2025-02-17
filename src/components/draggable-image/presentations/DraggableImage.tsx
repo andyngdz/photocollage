@@ -13,10 +13,8 @@ export const DraggableImage: FC<IDraggableImageProps> = ({ file }) => {
   const src = URL.createObjectURL(file);
 
   return (
-    <div className="relative w-full h-full">
-      <SimpleBarReact>
-        <Image className="object-cover" radius="none" src={src} removeWrapper />
-      </SimpleBarReact>
-    </div>
+    <SimpleBarReact key={file.name} className="relative h-[inherit]">
+      <Image className="object-cover" radius="none" src={src} removeWrapper />
+    </SimpleBarReact>
   );
 };
