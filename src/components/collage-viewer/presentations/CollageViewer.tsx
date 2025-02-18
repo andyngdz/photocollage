@@ -22,7 +22,6 @@ export const CollageViewer = () => {
         <Layout
           items={items}
           onRender={(item) => <DraggableImage key={item.id} item={item} />}
-          className="h-full gap-1"
         />
       </DndContext>
     </div>

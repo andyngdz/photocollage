@@ -19,7 +19,10 @@ export const BaseLayout = <T,>({
   const children = useMemo(() => items.map(onRender), [items]);
 
   return (
-    <div className={clsx("overflow-hidden", className)} {...restProps}>
+    <div
+      className={clsx("overflow-hidden", "h-full", "gap-1", className)}
+      {...restProps}
+    >
       {children}
     </div>
   );
