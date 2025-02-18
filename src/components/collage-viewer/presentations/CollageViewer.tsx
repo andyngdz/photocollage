@@ -1,18 +1,17 @@
-import { useCollageLayoutsSelector } from "@/components/collage-layouts-selector/hooks/useCollageLayoutsSelector";
 import { useCollageViewer } from "@/components/collage-viewer/hooks/useCollageViewer";
-import { DraggableImage } from "@/components/draggable-image/presentations/DraggableImage";
+import { DraggableArea } from "@/components/draggable-area/presentations/DraggableArea";
+import { DroppableArea } from "@/components/droppable-area/presentations/DroppableArea";
+import { ImageRender } from "@/components/image-render/presentations/ImageRender";
+import { ItemWrapper } from "@/components/item-wrapper/presentations/ItemWrapper";
 import { DndContext } from "@dnd-kit/core";
 import clsx from "clsx";
 
 export const CollageViewer = () => {
-  const { items, onDragEnd } = useCollageViewer();
-  const { Layout } = useCollageLayoutsSelector();
+  const { id, Layout, items, size, onDragEnd } = useCollageViewer();
 
   return (
     <div
-      className={clsx("bg-white", {
-        hidden: items.length === 0,
-      })}
+      className={clsx("bg-white")}
       style={{
         width: 600,
         height: 600,
@@ -20,8 +19,27 @@ export const CollageViewer = () => {
     >
       <DndContext onDragEnd={onDragEnd}>
         <Layout
-          items={items}
-          onRender={(item) => <DraggableImage key={item.id} item={item} />}
+          key={id}
+          size={size}
+          onRender={(index) => {
+            const item = items[index];
+
+            if (item) {
+              const { id } = item;
+
+              return (
+                <DraggableArea key={id} id={id}>
+                  <DroppableArea key={id} item={item}>
+                    <ItemWrapper>
+                      {item && <ImageRender file={item.file} />}
+                    </ItemWrapper>
+                  </DroppableArea>
+                </DraggableArea>
+              );
+            }
+
+            return <ItemWrapper key={`${index}`} />;
+          }}
         />
       </DndContext>
     </div>

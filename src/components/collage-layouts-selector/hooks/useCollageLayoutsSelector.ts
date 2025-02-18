@@ -7,11 +7,13 @@ import { create } from "zustand";
 
 export interface IUseCollageLayoutsSelectorProps {
   Layout: FC<IBaseLayoutProps>;
+  size: number;
 }
 
 const useCollageLayoutsSelector = create<IUseCollageLayoutsSelectorProps>(
   () => ({
     Layout: TwoImagesHorizontal,
+    size: 2,
   })
 );
 

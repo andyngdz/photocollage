@@ -10,12 +10,14 @@ const LAYOUTS_2 = [TwoImagesHorizontal, TwoImagesVertical];
 
 export const CollageLayoutsSelector = () => {
   const layout2Children = LAYOUTS_2.map((Layout) => {
+    const items = onGenerateLayouts(2);
+
     return (
       <Layout
         key={Layout.name}
-        items={onGenerateLayouts(2)}
-        onRender={(item) => item}
-        className="p-2 bg-default rounded-lg hover-border-blue"
+        size={2}
+        onRender={(index) => items[index]}
+        className="p-2 bg-default rounded]-lg hover-border-blue"
         onClick={() => onSetNewLayout(Layout)}
       />
     );
