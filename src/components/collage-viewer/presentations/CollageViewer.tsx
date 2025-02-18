@@ -1,4 +1,4 @@
-import { TwoImages } from "@/components/collage-layouts/presentations/two-images/presentations/TwoImages";
+import { TwoImagesHorizontal } from "@/components/collage-layouts/presentations/two-images/presentations/TwoImagesHorizontal";
 import { useCollageViewer } from "@/components/collage-viewer/hooks/useCollageViewer";
 import { DraggableImage } from "@/components/draggable-image/presentations/DraggableImage";
 import { DndContext } from "@dnd-kit/core";
@@ -18,7 +18,7 @@ export const CollageViewer = () => {
       }}
     >
       <DndContext onDragEnd={onDragEnd}>
-        <TwoImages
+        <TwoImagesHorizontal
           items={items}
           onRender={(item) => <DraggableImage key={item.id} item={item} />}
         />

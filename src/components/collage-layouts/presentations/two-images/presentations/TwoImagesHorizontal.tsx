@@ -4,7 +4,7 @@ import {
 } from "@/components/collage-layouts/presentations/BaseLayout";
 import clsx from "clsx";
 
-export const TwoImages = <T,>({
+export const TwoImagesHorizontal = <T,>({
   className,
   ...restProps
 }: IBaseLayoutProps<T>) => {
