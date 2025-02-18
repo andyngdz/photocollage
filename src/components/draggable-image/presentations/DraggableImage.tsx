@@ -19,8 +19,8 @@ export const DraggableImage: FC<IDraggableImageProps> = ({ item }) => {
   return (
     <div
       ref={setNodeRef}
-      className="h-[inherit]"
       style={style}
+      className="h-[inherit]"
       {...listeners}
       {...attributes}
     >

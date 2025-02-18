@@ -20,7 +20,7 @@ export const BaseLayout = <T,>({
 
   return (
     <div
-      className={clsx("overflow-hidden", "h-full", "gap-1", className)}
+      className={clsx("overflow-hidden", "h-[inherit]", "gap-1", className)}
       {...restProps}
     >
       {children}
