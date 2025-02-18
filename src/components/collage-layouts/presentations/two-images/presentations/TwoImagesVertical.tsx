@@ -4,10 +4,10 @@ import {
 } from "@/components/collage-layouts/presentations/BaseLayout";
 import clsx from "clsx";
 
-export const TwoImagesVertical = <T,>({
+export const TwoImagesVertical = ({
   className,
   ...restProps
-}: IBaseLayoutProps<T>) => {
+}: IBaseLayoutProps) => {
   return (
     <BaseLayout
       className={clsx("grid grid-rows-2", className)}

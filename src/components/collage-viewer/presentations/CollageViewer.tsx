@@ -2,7 +2,7 @@ import { useCollageViewer } from "@/components/collage-viewer/hooks/useCollageVi
 import { DraggableArea } from "@/components/draggable-area/presentations/DraggableArea";
 import { DroppableArea } from "@/components/droppable-area/presentations/DroppableArea";
 import { ImageRender } from "@/components/image-render/presentations/ImageRender";
-import { ItemWrapper } from "@/components/item-wrapper/presentations/ItemWrapper";
+import { ItemScroller } from "@/components/item-scroller/presentations/ItemScroller";
 import { DndContext } from "@dnd-kit/core";
 import clsx from "clsx";
 
@@ -30,15 +30,15 @@ export const CollageViewer = () => {
               return (
                 <DraggableArea key={id} id={id}>
                   <DroppableArea key={id} item={item}>
-                    <ItemWrapper>
+                    <ItemScroller>
                       {item && <ImageRender file={item.file} />}
-                    </ItemWrapper>
+                    </ItemScroller>
                   </DroppableArea>
                 </DraggableArea>
               );
             }
 
-            return <ItemWrapper key={`${index}`} />;
+            return <ItemScroller key={`${index}`} />;
           }}
         />
       </DndContext>

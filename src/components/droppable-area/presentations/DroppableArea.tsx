@@ -10,7 +10,7 @@ export const DroppableArea: FC<IDroppableAreaProps> = ({ item, children }) => {
   const { setNodeRef } = useDroppableArea(item);
 
   return (
-    <div ref={setNodeRef} className="h-[inherit]">
+    <div ref={setNodeRef} className="h-full w-full">
       {children}
     </div>
   );

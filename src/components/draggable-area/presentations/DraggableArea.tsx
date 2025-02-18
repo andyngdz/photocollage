@@ -12,7 +12,7 @@ export const DraggableArea = ({ id, children }: IDraggableImageProps) => {
 
   return (
     <div
-      className="h-[inherit]"
+      className="h-full w-full overflow-hidden"
       ref={setNodeRef}
       style={style}
       {...listeners}
