@@ -1,6 +1,6 @@
 import {
   IBaseLayoutProps,
-  TwoImagesVertical,
+  TwoImagesHorizontal,
 } from "@/components/collage-layouts/presentations";
 import { FC } from "react";
 import { create } from "zustand";
@@ -11,7 +11,7 @@ export interface IUseCollageLayoutsSelectorProps {
 
 const useCollageLayoutsSelector = create<IUseCollageLayoutsSelectorProps>(
   () => ({
-    Layout: TwoImagesVertical,
+    Layout: TwoImagesHorizontal,
   })
 );
 
