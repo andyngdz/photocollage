@@ -1,4 +1,4 @@
-import { TwoImagesHorizontal } from "@/components/collage-layouts/presentations/two-images/presentations/TwoImagesHorizontal";
+import { useCollageLayoutsSelector } from "@/components/collage-layouts-selector/hooks/useCollageLayoutsSelector";
 import { useCollageViewer } from "@/components/collage-viewer/hooks/useCollageViewer";
 import { DraggableImage } from "@/components/draggable-image/presentations/DraggableImage";
 import { DndContext } from "@dnd-kit/core";
@@ -6,6 +6,7 @@ import clsx from "clsx";
 
 export const CollageViewer = () => {
   const { items, onDragEnd } = useCollageViewer();
+  const { Layout } = useCollageLayoutsSelector();
 
   return (
     <div
@@ -18,9 +19,10 @@ export const CollageViewer = () => {
       }}
     >
       <DndContext onDragEnd={onDragEnd}>
-        <TwoImagesHorizontal
+        <Layout
           items={items}
           onRender={(item) => <DraggableImage key={item.id} item={item} />}
+          className="h-full gap-1"
         />
       </DndContext>
     </div>

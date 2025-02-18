@@ -1,3 +1,4 @@
+import { onSetNewLayout } from "@/components/collage-layouts-selector/hooks/useCollageLayoutsSelector";
 import { onGenerateLayouts } from "@/components/collage-layouts-selector/utils/layout";
 import {
   TwoImagesHorizontal,
@@ -15,6 +16,7 @@ export const CollageLayoutsSelector = () => {
         items={onGenerateLayouts(2)}
         onRender={(item) => item}
         className="gap-1 p-2 bg-default rounded-lg hover-border-blue"
+        onClick={() => onSetNewLayout(Layout)}
       />
     );
   });
