@@ -1,4 +1,5 @@
 import { heroui } from "@heroui/react";
+import typography from "@tailwindcss/typography";
 import type { Config } from "tailwindcss";
 
 export default {
@@ -16,5 +17,5 @@ export default {
       },
     },
   },
-  plugins: [heroui()],
+  plugins: [heroui(), typography()],
 } satisfies Config;

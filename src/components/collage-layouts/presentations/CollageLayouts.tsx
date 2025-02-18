@@ -12,15 +12,17 @@ export const CollageLayouts = () => {
         key={Layout.name}
         items={onGenerateLayouts(2)}
         onRender={(item) => item}
-        className="w-12 h-10 gap-1 p-1 rounded-sm bg-gray-200"
+        className="gap-1 p-2 bg-default rounded-lg"
       />
     );
   });
 
   return (
     <div className="h-full w-[300px] p-4">
-      <label className="prose-lg">Layouts</label>
-      <SimpleBarReact>{layout2Children}</SimpleBarReact>
+      <label className="prose-lg font-semibold">Layouts</label>
+      <SimpleBarReact className="mt-10">
+        <div className="grid grid-cols-3 h-12">{layout2Children}</div>
+      </SimpleBarReact>
     </div>
   );
 };
