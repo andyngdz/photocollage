@@ -29,10 +29,8 @@ export const CollageViewer = () => {
 
               return (
                 <DraggableArea key={id} id={id}>
-                  <DroppableArea key={id} item={item}>
-                    <ItemScroller>
-                      {item && <ImageRender file={item.file} />}
-                    </ItemScroller>
+                  <DroppableArea item={item}>
+                    <ImageRender file={item.file} />
                   </DroppableArea>
                 </DraggableArea>
               );
