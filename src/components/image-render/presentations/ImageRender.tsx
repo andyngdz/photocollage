@@ -7,5 +7,6 @@ export interface IImageRenderProps {
 
 export const ImageRender: FC<IImageRenderProps> = ({ file }) => {
   const src = URL.createObjectURL(file);
+
   return <Image radius="none" src={src} removeWrapper />;
 };

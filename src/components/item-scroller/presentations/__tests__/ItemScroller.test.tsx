@@ -1,11 +1,10 @@
 import { ItemScroller } from "@/components/item-scroller/presentations/ItemScroller";
 import { render, screen } from "@testing-library/react";
-import { beforeAll, describe, expect, it, vi } from "vitest";
 
 describe("ItemScroller", () => {
   beforeAll(() => {
-    window.getComputedStyle = vi.fn().mockImplementation(() => ({
-      getPropertyValue: () => vi.fn(),
+    window.getComputedStyle = jest.fn().mockImplementation(() => ({
+      getPropertyValue: () => jest.fn(),
     }));
   });
 
