@@ -16,6 +16,7 @@ export const FileSelector: FC<IFileSelectorProps> = ({ onFileChange }) => {
       <input
         ref={selectorRef}
         type="file"
+        data-testid="file-picker"
         onChange={(event) => onChange(event)}
         hidden
         multiple
