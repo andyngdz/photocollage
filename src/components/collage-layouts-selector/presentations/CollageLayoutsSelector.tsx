@@ -17,7 +17,7 @@ export const CollageLayoutsSelector = () => {
         key={Layout.name}
         size={2}
         onRender={(index) => items[index]}
-        className="p-2 bg-default rounded]-lg hover-border-blue"
+        className="p-2 bg-default rounded-lg hover-border-blue"
         onClick={() => onSetNewLayout(Layout)}
       />
     );
